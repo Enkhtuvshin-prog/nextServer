@@ -1,12 +1,15 @@
 // const express = require("express");
 import dotenv from "dotenv";
 dotenv.config();
+import cors from "cors";
 import express, { Application, Request, Response } from "express";
 import movieRoutes from "./route/movieRoutes";
-// import { connect } from "http2";
+
+
 
 import connectDb from "./config";
 const app: Application = express();
+app.use(cors())
 app.use(express.json());
 const MONGO_URI = process.env.MONGO_URI || "";
 // const connectDb = (uri:)
