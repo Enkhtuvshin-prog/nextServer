@@ -6,6 +6,7 @@ interface IMovie {
   runtime: Number;
   cast: String[];
   title: String;
+  poster: String;
   fullplot: String;
   languages: String[];
   released: Date;
