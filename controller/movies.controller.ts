@@ -13,10 +13,16 @@ const getMovies = async (req: Request, res: Response) => {
     const movies = await Movie.find().skip(skip).limit(limit);
     res
       .status(200)
-      .json({ success: true, movies, pagination: { pageCount, total } });
+      .json({ success: true, movies, pagination: { pageCount, total, page } });
   } catch (err) {
     console.log("ERR++", err);
   }
 };
 
-export { getMovies };
+const getMovie = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const movie = await Movie.findById(id);
+  res.status(200).json({ success: true, movie });
+};
+
+export { getMovies, getMovie };
